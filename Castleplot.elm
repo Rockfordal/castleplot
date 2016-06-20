@@ -60,7 +60,7 @@ viewcastle castle =
   circle [ cx <| toString <| convertx <| castle.x
          , cy <| toString <| converty <| castle.y
          , r "5"
-         , fill "#FFFF00"
+         , fill "#FF9900"
          ] []
 
 mywidth = (toString Xy.screenwidth)

@@ -14,10 +14,12 @@ castle5 = { x = 3405, y = -2340 }
 castle6 = { x = 4380, y = -2925 }
 castle7 = { x = 5205, y = -2549 }
 castle8 = { x = 5041, y = -2790 }
+castle9 = { x = 3999, y = -1000 }
+castle10 = { x = 3900, y = 5000 }
 
 castles =
   [ castle1, castle2, castle3, castle3, castle4
-  , castle5, castle6, castle7, castle8
+  , castle5, castle6, castle7, castle8, castle9, castle10
   ]
 
 margin : Float
@@ -55,10 +57,16 @@ ratio = screendiff / maxdiff
 convertx : Int -> Int
 convertx ix =
     let
+        --xmid = fx - origox
+        --rat = screendiff / ((maxdiff - ydiff) * 2)
+        --newx = xmid * rat + halfscreen + margin / 2
         fx = toFloat ix
-        xmid = fx - origox
-        rat = screendiff / ((maxdiff - ydiff) * 2)
-        newx = xmid * rat + halfscreen + margin / 2
+        -- newx = ( (fx - xmin) * screenwidth ) / ( xmax - xmin )
+        -- newx = ( (fx - xmin) * (screenwidth - margin) ) / ( xmax - xmin ) + margin/2
+        padd =  maxdiff - xdiff
+        ratio = ( (fx - xmin) * (screenwidth - margin) )
+        newx =  ratio / maxdiff + margin/2 -- + padd 
+
     in
         round newx
 
@@ -79,10 +87,14 @@ origoy = ydiff / 2 + ymin
 converty : Int -> Int
 converty iy =
     let
+        --fy = toFloat iy
+        --ymid = fy - origoy
+        --rat = screendiff / ((maxdiff - ydiff) * 2)
+        --newy = ymid * rat + halfscreen + margin / 2
         fy = toFloat iy
-        ymid = fy - origoy
-        rat = screendiff / ((maxdiff - ydiff) * 2)
-        newy = ymid * rat + halfscreen + margin / 2
+        --newy = ( (fy - ymin) * (screenwidth - margin) ) / ( ymax - ymin ) + margin/2
+        newy = ( (fy - ymin) * (screenwidth - margin) ) / maxdiff + margin/2
+
     in
         round newy
 
