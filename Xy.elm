@@ -45,7 +45,7 @@ convertx ix =
         -- rat = screendiff / ((maxdiff - ydiff) * 2)
         -- newx = xmid * rat + halfscreen + margin / 2
         -- newx = fx * screenwidth / (xmax - xmin) / 2
-        newx = (fx * screenwidth / maxdiff / 2) + screenwidth/2
+        newx = (fx * screenwidth / maxdiff) + screenwidth/2
     in
         round newx
 
@@ -69,7 +69,7 @@ converty iy =
         -- rat = screendiff / ((maxdiff - ydiff) * 2)
         -- newy = ymid * rat + halfscreen + margin / 2
         -- newy = fy * screenwidth / (ymax - ymin) / 2
-        newy = (fy * screenwidth / maxdiff / 2) + screenwidth/2
+        newy = (fy * screenwidth / maxdiff) + screenwidth/2
     in
         round newy
 
